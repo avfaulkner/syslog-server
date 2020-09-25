@@ -19,6 +19,12 @@ resource "aws_instance" "syslog" {
     volume_type = "gp2"
     volume_size = var.root_vol_size
   }
+
+  # Add the rsyslog.conf file to the new server
+  provisioner "file" {
+    source = "rsyslog_server.conf"
+    destination = "/etc/rsyslog.d/rsyslog_server.conf"
+  }
 }
 
 resource "aws_eip" "syslog-eip" {
