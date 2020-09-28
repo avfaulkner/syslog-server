@@ -41,3 +41,7 @@ variable "ssh_cidr_blocks" {
 variable "aws_account" {
   description = "Canonical name of AWS account"
 }
+
+variable "public_key" {
+  description = "Public key to used in ssh key pair"
+}

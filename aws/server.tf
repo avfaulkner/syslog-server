@@ -1,3 +1,8 @@
+resource "aws_key_pair" "ssh-key" {
+  key_name   = "syslog-key"
+  public_key = var.public_key
+}
+
 resource "aws_instance" "syslog" {
   ami           = data.aws_ami.syslog.id
   ebs_optimized = false
