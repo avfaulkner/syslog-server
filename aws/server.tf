@@ -4,13 +4,13 @@ resource "aws_key_pair" "ssh-key" {
 }
 
 resource "aws_instance" "syslog" {
-  ami           = data.aws_ami.syslog.id
+  ami           = var.ami != "" ? var.ami : data.aws_ami.syslog.id
   ebs_optimized = false
   instance_type = var.instance_type
   monitoring    = true
-  key_name      = var.key_pair
+  key_name      = aws_key_pair.ssh-key.id
   subnet_id     = aws_subnet.subnet-public.id
-  user_data     = file("syslog.sh")
+  user_data     = data.template_file.user_data.id
 
   vpc_security_group_ids = [
     aws_security_group.syslog-sg.id,

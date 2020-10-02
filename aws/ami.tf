@@ -1,15 +1,21 @@
 data "aws_ami" "syslog" {
   most_recent = true
+  owners = ["aws-marketplace"]
+//  owners = [var.aws_account] # Canonical
 
   filter {
     name   = "name"
-    values = ["CentOS 8.2.2004 x86_64"]
+    values = [var.marketplace_ami_name]
   }
 
   filter {
-    name   = "virtualization-type"
-    values = ["hvm"]
+    name   = "root-device-type"
+    values = ["ebs"]
   }
 
-  owners = [var.aws_account] # Canonical
+  filter {
+    name   = "architecture"
+    values = ["x86_64"]
+  }
+
 }

@@ -25,10 +25,6 @@ variable "ami" {
   description = "Specific ami to use"
 }
 
-variable "key_pair" {
-  description = "Instance key pair"
-}
-
 variable "instance_name" {
   description = "Name tag given to instance"
 }
@@ -44,4 +40,8 @@ variable "aws_account" {
 
 variable "public_key" {
   description = "Public key to used in ssh key pair"
+}
+
+variable "marketplace_ami_name" {
+  description = "Name of AMI in AWS Marketplace"
 }
