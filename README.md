@@ -21,7 +21,7 @@ Add your desired variables to aws/terraform.tfvars file
     - marketplace_ami_name: The name of an image in the AWS Marketplace.
     Examples could be "ubuntu*", "centos*", etc. 
     - Priority is given to the "ami" variable; if a specific AMI ID is provided, 
-    we will that image. 
+    we will use that image. 
     
 
 Initialize the environment
