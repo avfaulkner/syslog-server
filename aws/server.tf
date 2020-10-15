@@ -13,6 +13,7 @@ resource "aws_instance" "syslog" {
   user_data     = data.template_file.user_data.id
   availability_zone = "${var.region}a"
 
+
   vpc_security_group_ids = [
     aws_security_group.syslog-sg.id,
   ]
@@ -30,4 +31,9 @@ resource "aws_instance" "syslog" {
 resource "aws_eip" "syslog-eip" {
   vpc      = true
   instance = aws_instance.syslog.id
+
+  tags = {
+    Name = "syslog-eip"
+  }
+
 }
