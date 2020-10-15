@@ -22,6 +22,9 @@ Add your desired variables to aws/terraform.tfvars file
     Examples could be "ubuntu*", "centos*", etc. 
     - Priority is given to the "ami" variable; if a specific AMI ID is provided, 
     we will use that image. 
+- Subnetting: 
+    - Public subnet: Use if ssh'ing to the server from outside of the server's network.
+    - Private subnet: Use if ssh'ing from within the server's network.  
     
 
 Initialize the environment

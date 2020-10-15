@@ -9,7 +9,7 @@ resource "aws_instance" "syslog" {
   instance_type = var.instance_type
   monitoring    = true
   key_name      = aws_key_pair.ssh-key.id
-  subnet_id     = aws_subnet.subnet-private.id
+  subnet_id     = aws_subnet.subnet-public.id
   user_data     = data.template_file.user_data.id
   availability_zone = "${var.region}a"
 
