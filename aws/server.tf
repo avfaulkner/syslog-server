@@ -9,8 +9,9 @@ resource "aws_instance" "syslog" {
   instance_type = var.instance_type
   monitoring    = true
   key_name      = aws_key_pair.ssh-key.id
-  subnet_id     = aws_subnet.subnet-public.id
+  subnet_id     = aws_subnet.subnet-private.id
   user_data     = data.template_file.user_data.id
+  availability_zone = "${var.region}a"
 
   vpc_security_group_ids = [
     aws_security_group.syslog-sg.id,
@@ -23,12 +24,6 @@ resource "aws_instance" "syslog" {
   root_block_device {
     volume_type = "gp2"
     volume_size = var.root_vol_size
-  }
-
-  # Add the rsyslog.conf file to the new server
-  provisioner "file" {
-    source = "rsyslog_server.conf"
-    destination = "/etc/rsyslog.d/rsyslog_server.conf"
   }
 }
 

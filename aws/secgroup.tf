@@ -21,12 +21,12 @@ resource "aws_security_group_rule" "ssh-in" {
   security_group_id = aws_security_group.syslog-sg.id
 }
 
-# https inbound
-resource "aws_security_group_rule" "https-in" {
+# syslog inbound
+resource "aws_security_group_rule" "syslog-in" {
   type        = "ingress"
-  description = "https access"
-  from_port   = 443
-  to_port     = 443
+  description = "syslog access"
+  from_port   = 514
+  to_port     = 514
   protocol    = "tcp"
   cidr_blocks = ["0.0.0.0/0"]
 

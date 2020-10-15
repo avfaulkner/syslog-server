@@ -36,15 +36,6 @@ resource "aws_route_table" "syslog-rt-private" {
 }
 
 
-resource "aws_subnet" "subnet-public" {
-  cidr_block = "10.0.10.0/24"
-  vpc_id     = aws_vpc.syslog.id
-
-  tags = {
-    Name = "syslog-public"
-  }
-}
-
 resource "aws_subnet" "subnet-private" {
   cidr_block = "10.0.11.0/24"
   vpc_id     = aws_vpc.syslog.id
