@@ -12,6 +12,7 @@ resource "aws_instance" "syslog" {
   subnet_id     = aws_subnet.subnet-public.id
   user_data     = data.template_file.user_data.id
   availability_zone = "${var.region}a"
+  iam_instance_profile = aws_iam_instance_profile.syslog_s3_access.id
 
 
   vpc_security_group_ids = [

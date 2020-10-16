@@ -11,15 +11,16 @@
 #sudo systemctl enable rsyslog.service
 #sudo systemctl start rsyslog.service
 
-apt-get install rsyslog -y
+sudo apt-get update -y
+sudo apt-get install rsyslog -y
 
-echo "$ModLoad imudp" >> /etc/rsyslog.conf
-echo "$UDPServerRun 514" >> /etc/rsyslog.conf
-echo "$ModLoad imtcp" >> /etc/rsyslog.conf
-echo "$InputTCPServerRun 514" >> /etc/rsyslog.conf
+sudo echo "$ModLoad imudp" >> /etc/rsyslog.conf
+sudo echo "$UDPServerRun 514" >> /etc/rsyslog.conf
+sudo echo "$ModLoad imtcp" >> /etc/rsyslog.conf
+sudo echo "$InputTCPServerRun 514" >> /etc/rsyslog.conf
 
-echo "$template remote-incoming-logs, "/var/log/%HOSTNAME%/%PROGRAMNAME%.log""  >> /etc/rsyslog.conf
-echo "*.* ?remote-incoming-logs" >> /etc/rsyslog.conf
+sudo echo "$template remote-incoming-logs, "/var/log/%HOSTNAME%/%PROGRAMNAME%.log""  >> /etc/rsyslog.conf
+sudo echo "*.* ?remote-incoming-logs" >> /etc/rsyslog.conf
 
-systemctl restart rsyslog
-systemctl enable rsyslog
+sudo systemctl restart rsyslog
+sudo systemctl enable rsyslog
