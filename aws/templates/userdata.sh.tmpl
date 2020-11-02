@@ -12,6 +12,7 @@
 #sudo systemctl start rsyslog.service
 
 sudo apt-get update -y
+sudo apt-get upgrade -y
 sudo apt-get install rsyslog -y
 
 sudo echo "$ModLoad imudp" >> /etc/rsyslog.conf
