@@ -34,6 +34,11 @@ variable "ssh_cidr_blocks" {
   type        = list(string)
 }
 
+variable "syslog_cidr_blocks" {
+  description = "Allows list members to send logs to syslog server"
+  type        = list(string)
+}
+
 variable "aws_account" {
   description = "Canonical name of AWS account"
 }

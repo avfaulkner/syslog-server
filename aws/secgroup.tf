@@ -28,7 +28,7 @@ resource "aws_security_group_rule" "syslog-in" {
   from_port   = 514
   to_port     = 514
   protocol    = "udp"
-  cidr_blocks = [var.ssh_cidr_blocks]
+  cidr_blocks = var.syslog_cidr_blocks
 
   security_group_id = aws_security_group.syslog-sg.id
 }
