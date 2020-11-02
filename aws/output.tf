@@ -1,7 +1,3 @@
-output "syslog_instance_ip" {
-  value = aws_instance.syslog.public_ip
-}
-
 output "syslog_instance" {
   value = {
     instance_name = var.instance_name
