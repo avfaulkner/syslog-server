@@ -9,6 +9,10 @@ ssh_cidr_blocks = [
   "" # Place appropriate cidr blocks as a list of strings here
 ]
 
+syslog_cidr_blocks = [
+  "" # Place appropriate cidr blocks as a list of strings here
+]
+
 # Add the public ssh key material as a string:
 public_key = "" # key starting with ssh-rsa...
 
